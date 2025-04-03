@@ -23,13 +23,17 @@ namespace Loja.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new SaleConfiguration());
             modelBuilder.ApplyConfiguration(new SaleItemConfiguration());
-
+            modelBuilder.Entity<SaleItem>()
+                .OwnsOne(si => si.UnitPrice, ownedBuilder =>
+                        {
+                            ownedBuilder.Property(m => m.Value).HasColumnName("UnitPrice");
+                            ownedBuilder.Property(m => m.Currency).HasColumnName("Currency");
+                        });
             base.OnModelCreating(modelBuilder);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            // Atualizar os timestamps de entidades modificadas
             foreach (var entry in ChangeTracker.Entries<EntityBase>())
             {
                 switch (entry.State)

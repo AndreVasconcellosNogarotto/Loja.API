@@ -9,7 +9,6 @@ namespace Loja.Application.AutoMapperConfig
     {
         public MappingProfile()
         {
-            // Entity to DTO
             CreateMap<Customer, CustomerDto>();
             CreateMap<Branch, BranchDto>();
             CreateMap<Product, ProductDto>()
@@ -26,7 +25,6 @@ namespace Loja.Application.AutoMapperConfig
                 .ForMember(dest => dest.Currency, opt => opt.MapFrom(src => src.TotalAmount.Currency))
                 .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.Items));
 
-            // DTO to Entity
             CreateMap<CustomerDto, Customer>()
                 .ForCtorParam("externalId", opt => opt.MapFrom(src => src.ExternalId))
                 .ForCtorParam("name", opt => opt.MapFrom(src => src.Name))

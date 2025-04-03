@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja.API", "Loja.API\Loja.API.csproj", "{07DE5425-DC0C-42B7-BE18-1E35A371D74E}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja.Application", "Loja.Application\Loja.Application.csproj", "{BF698243-BFF3-4EDF-B07F-B3D433A0EB76}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja.Infrastructure", "Loja.Infrastructure\Loja.Infrastructure.csproj", "{44FB37DC-BF4A-44A3-A20F-C9C88202FC27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loja.Tests", "Loja.Tests\Loja.Tests.csproj", "{411BCA2A-AE30-4846-A96A-B58ACE721BC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{44FB37DC-BF4A-44A3-A20F-C9C88202FC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44FB37DC-BF4A-44A3-A20F-C9C88202FC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44FB37DC-BF4A-44A3-A20F-C9C88202FC27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{411BCA2A-AE30-4846-A96A-B58ACE721BC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{411BCA2A-AE30-4846-A96A-B58ACE721BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{411BCA2A-AE30-4846-A96A-B58ACE721BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{411BCA2A-AE30-4846-A96A-B58ACE721BC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

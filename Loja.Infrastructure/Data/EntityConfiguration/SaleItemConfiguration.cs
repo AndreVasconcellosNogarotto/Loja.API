@@ -28,19 +28,19 @@ namespace Loja.Infrastructure.Data.EntityConfiguration
 
             builder.Property(si => si.UpdatedAt);
 
-            //builder.OwnsOne(si => si.UnitPrice, money =>
-            //{
-            //    money.Property(m => m.Value)
-            //        .HasColumnName("UnitPrice")
-            //        .HasColumnType("decimal(18,2)")
-            //        .IsRequired();
+            builder.OwnsOne(si => si.UnitPrice, money =>
+            {
+                money.Property(m => m.Value)
+                    .HasColumnName("UnitPrice")
+                    .HasColumnType("decimal(18,2)")
+                    .IsRequired();
 
-            //    money.Property(m => m.Currency)
-            //        .HasColumnName("Currency")
-            //        .HasMaxLength(3)
-            //        .IsRequired()
-            //        .HasDefaultValue("BRL");
-            //});
+                money.Property(m => m.Currency)
+                    .HasColumnName("Currency")
+                    .HasMaxLength(3)
+                    .IsRequired()
+                    .HasDefaultValue("BRL");
+            });
 
             builder.HasOne(si => si.Product)
                 .WithMany()
