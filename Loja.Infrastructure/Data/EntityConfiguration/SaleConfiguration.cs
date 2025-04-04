@@ -28,25 +28,21 @@ namespace Loja.Infrastructure.Data.EntityConfiguration
 
             builder.Property(s => s.UpdatedAt);
 
-            // Relacionamento com Customer
             builder.HasOne(s => s.Customer)
                 .WithMany()
                 .HasForeignKey(s => s.CustomerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Relacionamento com Branch
             builder.HasOne(s => s.Branch)
                 .WithMany()
                 .HasForeignKey(s => s.BranchId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Relacionamento com SaleItems
             builder.HasMany(s => s.Items)
                 .WithOne()
                 .HasForeignKey(si => si.SaleId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Índice para o SaleNumber
             builder.HasIndex(s => s.SaleNumber)
                 .IsUnique();
         }

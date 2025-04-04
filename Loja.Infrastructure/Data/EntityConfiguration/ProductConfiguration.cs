@@ -34,7 +34,6 @@ namespace Loja.Infrastructure.Data.EntityConfiguration
                 money.Property(m => m.Currency).HasColumnName("Currency");
             });
 
-            // Índice para o ExternalId
             builder.HasIndex(p => p.ExternalId)
                 .IsUnique();
         }

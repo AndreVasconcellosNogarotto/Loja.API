@@ -33,7 +33,7 @@ public class MoneyTests
         var money2 = new Money(50.25m, "BRL");
 
         // Act
-        var result = money1 * money2;
+        var result = money1 + money2;
 
         // Assert
         Assert.Equal(150.75m, result.Value);
@@ -48,7 +48,7 @@ public class MoneyTests
         var money2 = new Money(50.25m, "USD");
 
         // Act & Assert
-        var ex = Assert.Throws<InvalidOperationException>(() => money1 * money2);
+        var ex = Assert.Throws<InvalidOperationException>(() => money1 + money2);
         Assert.Contains("Cannot add money values with different currencies", ex.Message);
     }
 

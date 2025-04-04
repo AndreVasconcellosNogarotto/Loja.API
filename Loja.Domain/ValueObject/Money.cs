@@ -11,12 +11,12 @@
             Currency = currency;
         }
 
-        public static Money operator *(Money money, Money multiplier)
+        public static Money operator +(Money a, Money b)
         {
-            if (money.Currency != multiplier.Currency)
+            if (a.Currency != b.Currency)
                 throw new InvalidOperationException("Cannot add money values with different currencies");
 
-            return new Money(money.Value * multiplier.Value, money.Currency);
+            return new Money(a.Value + b.Value, a.Currency);
         }
 
         public static Money operator -(Money a, Money b)
@@ -64,7 +64,7 @@
 
         public override string ToString()
         {
-            return $"{Value:F2} {Currency}";
+            return string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0:F2} {1}", Value, Currency);
         }
     }
 }

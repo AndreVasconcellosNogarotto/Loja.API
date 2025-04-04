@@ -28,7 +28,6 @@ namespace Loja.Infrastructure.Data.EntityConfiguration
 
             builder.Property(b => b.UpdatedAt);
 
-            // Índice para o ExternalId
             builder.HasIndex(b => b.ExternalId)
                 .IsUnique();
         }

@@ -29,6 +29,27 @@ namespace Loja.Infrastructure.Data
                             ownedBuilder.Property(m => m.Value).HasColumnName("UnitPrice");
                             ownedBuilder.Property(m => m.Currency).HasColumnName("Currency");
                         });
+
+            modelBuilder.Entity<Sale>()
+                  .HasMany(s => s.Items)
+                  .WithOne()
+                  .HasForeignKey(i => i.SaleId);
+
+            modelBuilder.Entity<Sale>()
+                .HasOne(s => s.Customer)
+                .WithMany()
+                .HasForeignKey(s => s.CustomerId);
+
+            modelBuilder.Entity<Sale>()
+                .HasOne(s => s.Branch)
+                .WithMany()
+                .HasForeignKey(s => s.BranchId);
+
+            modelBuilder.Entity<SaleItem>()
+                .HasOne(i => i.Product)
+                .WithMany()
+                .HasForeignKey(i => i.ProductId);
+
             base.OnModelCreating(modelBuilder);
         }
 
@@ -48,6 +69,14 @@ namespace Loja.Infrastructure.Data
             }
 
             return base.SaveChangesAsync(cancellationToken);
+        }
+
+        private DbContextOptions<AppDbContext> GetInMemoryDbOptions()
+        {
+            return new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                .EnableSensitiveDataLogging()
+                .Options;
         }
     }
 }
